@@ -132,6 +132,7 @@ static Key keys[] = {
 	{ MODKEY,                             XK_b,         spawn,            SHCMD("brightnessctl +5%") },
 	{ MODKEY|ShiftMask,                   XK_b,         spawn,            SHCMD("brightnessctl 5%-") },
 	{ MODKEY,                             XK_t,         togglesticky,     {0} },
+	{ MODKEY,             XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                             XK_space,     cyclelayout,      {.i = +1 } },
 	{ MODKEY|ControlMask,                 XK_period,    cyclelayout,      {.i = -1 } },
 	TAGKEYS(                        XK_1, 0)
