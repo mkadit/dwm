@@ -49,6 +49,7 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "[M]",      monocle },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ NULL,       NULL },
 };
 
 /* key definitions */
@@ -79,52 +80,51 @@ static const char *termcmd[]  = { "st", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	// { MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,             XK_r,         spawn,            SHCMD("rofi -show") },
-	{ MODKEY,             XK_Return,    spawn,            {.v = termcmd } },
-	{ MODKEY|ControlMask, XK_b,         togglebar,        {0} },
-	STACKKEYS(MODKEY,                          focus)
-	STACKKEYS(MODKEY|ShiftMask,                push)
-	{ MODKEY,             XK_i,         incnmaster,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_i,         incnmaster,       {.i = -1 } },
-	{ MODKEY,             XK_h,         setmfact,         {.f = -0.05} },
-	{ MODKEY,             XK_l,         setmfact,         {.f = +0.05} },
-	// { MODKEY,          XK_Return,    zoom,             {0} },
-	// { MODKEY,          XK_Tab,       view,             {0} },
-	{ MODKEY,             XK_Tab,       spawn,            SHCMD("rofi-pass") },
-	{ MODKEY|ShiftMask,   XK_Tab,       spawn,            SHCMD("clipmenu") },
-	{ MODKEY,             XK_x,       spawn,            SHCMD("dmenu_kill") },
-	{ MODKEY|ShiftMask,   XK_x,       spawn,            SHCMD("dmenu_systemd") },
-	{ MODKEY,             XK_q,         killclient,       {0} },
-	{ MODKEY|ShiftMask,   XK_q,         shiftviewclients, { .i = -1 } },
-	{ MODKEY|ShiftMask,   XK_e,         shiftviewclients, { .i = +1 } },
-	// { MODKEY,             XK_t,         setlayout,        {.v = &layouts[0]} },
-	// { MODKEY,             XK_f,         setlayout,        {.v = &layouts[1]} },
-	// { MODKEY,             XK_m,         setlayout,        {.v = &layouts[2]} },
-	{ MODKEY,             XK_space,     setlayout,        {0} },
-	{ MODKEY|ShiftMask,   XK_space,     togglefloating,   {0} },
-	{ MODKEY,             XK_0,         view,             {.ui = ~0 } },
-	{ MODKEY|ShiftMask,   XK_0,         tag,              {.ui = ~0 } },
-	{ MODKEY,             XK_comma,     focusmon,         {.i = -1 } },
-	{ MODKEY,             XK_period,    focusmon,         {.i = +1 } },
-	{ MODKEY|ShiftMask,   XK_comma,     tagmon,           {.i = -1 } },
-	{ MODKEY|ShiftMask,   XK_period,    tagmon,           {.i = +1 } },
-	{ MODKEY|ControlMask, XK_q,         spawn,            SHCMD("sysact") },
-	{ MODKEY|ShiftMask,   XK_BackSpace, quit,             {0} },
-	{ MODKEY,             XK_minus,     spawn,            SHCMD("pamixer --allow-boost -d 5") },
-	{ MODKEY,             XK_equal,     spawn,            SHCMD("pamixer --allow-boost -i 5") },
-	{ MODKEY,             XK_b,         spawn,            SHCMD("brightnessctl +5%") },
-	{ MODKEY|ShiftMask,   XK_b,         spawn,            SHCMD("brightnessctl 5%-") },
-	{ MODKEY,                       XK_t,      togglesticky,   {0} },
-	TAGKEYS(                        XK_1,                      0)
-	TAGKEYS(                        XK_2,                      1)
-	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },
+	{ MODKEY,                             XK_r,         spawn,            SHCMD("rofi -show") },
+	{ MODKEY,                             XK_Return,    spawn,            {.v = termcmd } },
+	{ MODKEY|ControlMask,                 XK_b,         togglebar,        {0} },
+	STACKKEYS(MODKEY,                     focus)
+	STACKKEYS(MODKEY|ShiftMask,           push)
+	{ MODKEY,                             XK_i,         incnmaster,       {.i = +1 } },
+	{ MODKEY|ShiftMask,                   XK_i,         incnmaster,       {.i = -1 } },
+	{ MODKEY,                             XK_h,         setmfact,         {.f = -0.05} },
+	{ MODKEY,                             XK_l,         setmfact,         {.f = +0.05} },
+	// { MODKEY,                          XK_Return,    zoom,             {0} },
+	// { MODKEY,                          XK_Tab,       view,             {0} },
+	{ MODKEY,                             XK_Tab,       spawn,            SHCMD("rofi-pass") },
+	{ MODKEY|ShiftMask,                   XK_Tab,       spawn,            SHCMD("clipmenu") },
+	{ MODKEY,                             XK_x,         spawn,            SHCMD("dmenu_kill") },
+	{ MODKEY|ShiftMask,                   XK_x,         spawn,            SHCMD("dmenu_systemd") },
+	{ MODKEY,                             XK_q,         killclient,       {0} },
+	{ MODKEY|ShiftMask,                   XK_q,         shiftviewclients, { .i = -1 } },
+	{ MODKEY|ShiftMask,                   XK_e,         shiftviewclients, { .i = +1 } },
+	// { MODKEY,                          XK_space,     setlayout,        {0} },
+	{ MODKEY|ShiftMask,                   XK_space,     togglefloating,   {0} },
+	{ MODKEY,                             XK_0,         view,             {.ui = ~0 } },
+	{ MODKEY|ShiftMask,                   XK_0,         tag,              {.ui = ~0 } },
+	{ MODKEY,                             XK_comma,     focusmon,         {.i = -1 } },
+	{ MODKEY,                             XK_period,    focusmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,                   XK_comma,     tagmon,           {.i = -1 } },
+	{ MODKEY|ShiftMask,                   XK_period,    tagmon,           {.i = +1 } },
+	{ MODKEY|ControlMask,                 XK_q,         spawn,            SHCMD("sysact") },
+	{ MODKEY|ShiftMask,                   XK_BackSpace, quit,             {0} },
+	{ MODKEY,                             XK_minus,     spawn,            SHCMD("pamixer --allow-boost -d 5") },
+	{ MODKEY,                             XK_equal,     spawn,            SHCMD("pamixer --allow-boost -i 5") },
+	{ MODKEY,                             XK_b,         spawn,            SHCMD("brightnessctl +5%") },
+	{ MODKEY|ShiftMask,                   XK_b,         spawn,            SHCMD("brightnessctl 5%-") },
+	{ MODKEY,                             XK_t,         togglesticky,     {0} },
+	{ MODKEY,                             XK_space,     cyclelayout,      {.i = +1 } },
+	{ MODKEY|ControlMask,                 XK_period,    cyclelayout,      {.i = -1 } },
+	TAGKEYS(                        XK_1, 0)
+	TAGKEYS(                        XK_2, 1)
+	TAGKEYS(                        XK_3, 2)
+	TAGKEYS(                        XK_4, 3)
+	TAGKEYS(                        XK_5, 4)
+	TAGKEYS(                        XK_6, 5)
+	TAGKEYS(                        XK_7, 6)
+	TAGKEYS(                        XK_8, 7)
+	TAGKEYS(                        XK_9, 8)
+	{ MODKEY|ControlMask|ShiftMask,       XK_q,         quit,             {1} },
 };
 
 /* button definitions */
