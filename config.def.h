@@ -32,8 +32,10 @@ static const Rule rules[] = {
 	{ "Gimp",          NULL, NULL, 0,      1, -1 },
 	{ "Firefox",       NULL, NULL, 1 << 8, 0, -1 },
 	{ "Google-chrome", NULL, NULL, 1 << 8, 0, 0},
-	{ "discord",     NULL,       NULL,       	    1 << 7,       0,           0,         0,        -1 },
-	{ "Telegram",     NULL,       NULL,       	    1 << 7,       0,           0,         0,        -1 },
+	{ "discord",       NULL, NULL, 1 << 7, 0, 0},
+	{ "Telegram",      NULL, NULL, 1 << 7, 0, 0},
+	{ "LINE",      NULL, NULL, 1 << 6, 0, 0},
+	{ "zoom",      NULL, NULL, 1 << 5, 0, 0},
 };
 
 /* layout(s) */
@@ -75,7 +77,7 @@ static Key keys[] = {
 	{ MODKEY,             XK_j,         focusstack,       {.i = +1 } },
 	{ MODKEY,             XK_k,         focusstack,       {.i = -1 } },
 	{ MODKEY,             XK_i,         incnmaster,       {.i = +1 } },
-	{ MODKEY,             XK_d,         incnmaster,       {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_i,         incnmaster,       {.i = -1 } },
 	{ MODKEY,             XK_h,         setmfact,         {.f = -0.05} },
 	{ MODKEY,             XK_l,         setmfact,         {.f = +0.05} },
 	// { MODKEY,          XK_Return,    zoom,             {0} },
