@@ -39,7 +39,7 @@ static const Rule rules[] = {
 	{ "Google-chrome", NULL, NULL, 1 << 8, 0, 0},
 	{ "discord",       NULL, NULL, 1 << 7, 0, 0},
 	{ "Telegram",      NULL, NULL, 1 << 7, 0, 0},
-	{ "LINE",      NULL, NULL, 1 << 6, 0, 0},
+	{ "line",      NULL, NULL, 1 << 6, 0, 0},
 	{ "zoom",      NULL, NULL, 1 << 5, 0, 0},
 };
 
@@ -100,6 +100,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	// { MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                             XK_r,            spawn,            SHCMD("rofi -show") },
+	{ MODKEY,                             XK_d,            spawn,            SHCMD("st -e vifmrun") },
 	{ MODKEY,                             XK_Return,       spawn,            {.v = termcmd } },
 	{ MODKEY|ControlMask,                 XK_b,            togglebar,        {0} },
 	STACKKEYS(MODKEY,                     focus)
@@ -131,8 +132,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,                   XK_comma,        tagmon,           {.i = -1 } },
 	{ MODKEY|ShiftMask,                   XK_period,       tagmon,           {.i = +1 } },
 	{ MODKEY|ControlMask,                 XK_q,            spawn,            SHCMD("sysact") },
-	{ MODKEY|ControlMask|ShiftMask,       XK_q,            quit,             {0} },
-	{ MODKEY|ControlMask|ShiftMask,       XK_q,            quit,             {1} },
+	// { MODKEY|ControlMask|ShiftMask,    XK_q,            quit,             {0} },
+	{ MODKEY|ShiftMask,       XK_w,            quit,             {1} },
 	{ MODKEY,                             XK_minus,        spawn,            SHCMD("pamixer --allow-boost -d 5") },
 	{ MODKEY,                             XK_equal,        spawn,            SHCMD("pamixer --allow-boost -i 5") },
 	{ MODKEY|ShiftMask,                   XK_minus,        spawn,            SHCMD("pamixer --toggle-mute") },
