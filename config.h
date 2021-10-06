@@ -15,9 +15,9 @@ static const char dmenufont[]       = "monospace:size=10";
 static char normbgcolor[]           = "#2e3440";
 static char normbordercolor[]       = "#434c5e";
 static char normfgcolor[]           = "#eca";
-static char selfgcolor[]            = "#2e3440"; 
+static char selfgcolor[]            = "#ade"; 
 static char selbordercolor[]        = "#81a1c1"; /*770000*/
-static char selbgcolor[]            = "#81a1c1"; /*ffc922*/
+static char selbgcolor[]            = "#2e3440"; /*ffc922*/
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -33,6 +33,7 @@ static const char *const autostart[] = {
 	"unclutter", "--timeout", "10",   NULL,
 	"setbg",     NULL,
 	"ssh-agent", NULL,
+	"dwm_bar", NULL,
 	NULL
 };
 
