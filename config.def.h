@@ -54,6 +54,7 @@ static const Rule rules[] = {
 	{ "Telegram",      NULL, NULL, 1 << 7, 0, 0},
 	{ "line",      NULL, NULL, 1 << 6, 0, 0},
 	{ "zoom",      NULL, NULL, 1 << 5, 0, 0},
+	{ "RemNote",      NULL, NULL, 1 << 4, 0, 0}, // use custom desktop entries
 };
 
 /* layout(s) */
