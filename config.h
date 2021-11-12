@@ -133,6 +133,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,                   XK_backslash,          spawn,            SHCMD("clipmenu") },
 	{ MODKEY,                             XK_x,            spawn,            SHCMD("dmenu_kill") },
 	{ MODKEY|ShiftMask,                   XK_x,            spawn,            SHCMD("dmenu_systemd") },
+	{ MODKEY,                   XK_o,            spawn,            SHCMD("dmenu_open") },
 	{ MODKEY,                             XK_q,            killclient,       {0} },
 	{ MODKEY|ShiftMask,                   XK_Tab,    shiftviewclients, { .i = -1 } },
 	{ MODKEY,                             XK_Tab,    shiftviewclients, { .i = +1 } },
